@@ -48,8 +48,9 @@
  *
  * @author Lin Gui
  */
-var Validator = require('validator').Validator
-  , Filter    = require('validator').Filter
+var validator = require('validator')
+  , Validator = validator.Validator
+  , Filter    = validator.Filter
   ;
 
 function iForm(rules){
@@ -271,6 +272,12 @@ ruleValidator[Date]   = typeValidator[Date]   = Validator.prototype.isDate;
 ruleFilter[Number]    = typeFilter[Number]    = Filter.prototype.toFloat;
 
 iForm.update();
+
+iForm.setDefaultError = function (error) {
+  for (var name in error) {
+    validator.defaultError[name] = error[name]
+  }
+};
 
 // export iForm
 module.exports = iForm;

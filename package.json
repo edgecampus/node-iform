@@ -11,7 +11,7 @@
     "node": "*"
   },
   "dependencies": {
-      "validator" : ">= 0.1.0"
+      "validator" : "git://github.com/edgecampus/node-validator.git"
   },
   "devDependencies": {
       "express" : ">= 2.0.0"
