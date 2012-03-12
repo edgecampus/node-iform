@@ -89,8 +89,6 @@ function iForm(rules){
         if(field = ifields[field_name]){
           var value = params[field_name];
           var rules = field.rules;
-          console.log(field_name);
-          console.log(value);
 
           if(value === undefined) {
             // form does not contains
