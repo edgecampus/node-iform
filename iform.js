@@ -277,5 +277,13 @@ iForm.setDefaultError = function (error) {
   }
 };
 
+/**
+ * Dynamically add rules to Node-Validator
+ */
+iForm.addRule = function (name, method) {
+  validator.Validator.prototype[name] = method;
+  iForm.update();
+};
+
 // export iForm
 module.exports = iForm;
