@@ -271,19 +271,34 @@ ruleFilter[Number]    = typeFilter[Number]    = Filter.prototype.toFloat;
 
 iForm.update();
 
+
+/*
+ * Update the default errors in node-validator
+ */
 iForm.setDefaultError = function (error) {
   for (var name in error) {
     validator.defaultError[name] = error[name]
   }
 };
 
-/**
+
+/*
  * Dynamically add rules to Node-Validator
  */
 iForm.addRule = function (name, method) {
   validator.Validator.prototype[name] = method;
   iForm.update();
 };
+
+
+/*
+ * Dynamically add filters to node-validator
+ */
+iForm.addFilter = function (name, method) {
+  validator.Filter.prototype[name] = method;
+  iForm.update();
+};
+
 
 // export iForm
 module.exports = iForm;
